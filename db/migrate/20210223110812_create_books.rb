@@ -8,3 +8,7 @@ class CreateBooks < ActiveRecord::Migration[5.2]
     end
   end
 end
+
+# DBのテーブルを作成する。どの種類のDBにするかはrails newの際に指定できる。
+# 無指定ならデフォルトのDBである SQLite3 が使われる。
+# DBテーブルが正しく作られているかは、db/schema.rbで確認できる。

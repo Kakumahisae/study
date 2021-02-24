@@ -1,5 +1,17 @@
 <h1>New Book</h1>
 
+<!-- 以下render…の部分はedit.htmlと同じテンプレートである_formを使用しているということ。
+これは部分テンプレートという。因みにformの中身は_form.html.erbであり、入力フォーム。
+新規登録と編集画面を同じフォーム形式として共通化するためこうしている。長そうなので以下-->
+
 <%= render 'form', book: @book %>
 
 <%= link_to 'Back', books_path %>
+
+<!--render 'form'の後ろにあるbook:@bookというオプションは、部分テンプレートに渡す
+引数を指示している.＜%= form_with(model: book, local: true) do |form| %>　が_formに書いてあるが、
+このmodel:book…ローカル変数bookに、ここで指定したbookが入る。さらにさかのぼると、ここのbook:@bookの
+@bookの内容は、controllerのnewアクションで書いたBook.new（現段階では空っぽ）が入っている。このように代入を繰り返しているわけである。
+＠＠＠まとめ＠＠＠
+ここでのフォーム内容は、Book.newに基づいて、form_withでフォームを生成。
+ブロック変数|form|は入力された内容を受け取り、do~endで示されるブロック処理を行うというわけだ。多分-->
